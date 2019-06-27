@@ -15,6 +15,6 @@ node {
     }
 	
     stage('deploy'){
-        sh "export DOCKER_COMPOSE=/home/viniot/deployment/platform && cd $DOCKER_COMPOSE && docker-compose up -d"
+        sh "export DOCKER_COMPOSE=/home/viniot/deployment/platform\ncd $DOCKER_COMPOSE && docker-compose up -d"
     }
 }
