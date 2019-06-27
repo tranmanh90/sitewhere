@@ -3,7 +3,7 @@
 node {
 
     dir ('/home/viniot/deployment/platform') {
-        sh 'pwd'
+
     }
 
     stage('checkout') {
