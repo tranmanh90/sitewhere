@@ -1,10 +1,6 @@
 #!/usr/bin/env groovy
 
 node {
-    agent any
-    environment {
-        DOCKER_HOST='unix:///var/run/docker.sock'
-    }
 
     stage('checkout') {
         checkout scm
@@ -15,6 +11,9 @@ node {
     }
 
     stage('packaging') {
+	    environment {
+			DOCKER_HOST='unix:///var/run/docker.sock'
+		}
         sh "./gradlew --project-prop debug clean dockerImage"
     }
 }
