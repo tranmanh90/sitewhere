@@ -3,7 +3,7 @@
 node {
 
     stage('test'){
-        sh "export DOCKER_COMPOSE=/home/viniot/deployment/platform\ncd $DOCKER_COMPOSE"
+        sh "cd /home/viniot/deployment/platform"
     }
 
     stage('checkout') {
