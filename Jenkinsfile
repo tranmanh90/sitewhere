@@ -9,10 +9,6 @@ node {
     stage('check java') {
         sh "java -version"
     }
-	
-    stage('export environment'){
-        sh "export DOCKER_HOST=unix:///var/run/docker.sock"
-    }
 
     stage('packaging') {
         sh "export DOCKER_HOST=unix:///var/run/docker.sock ./gradlew --project-prop debug clean dockerImage"
