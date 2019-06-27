@@ -1,9 +1,6 @@
 #!/usr/bin/env groovy
 
 node {
-    environment {
-		DOCKER_HOST="unix:///var/run/docker.sock"
-    }
 
     stage('checkout') {
         checkout scm
@@ -12,6 +9,10 @@ node {
     stage('check java') {
         sh "java -version"
     }
+	
+	stage('export environment'){
+		sh "export DOCKER_HOST=unix:///var/run/docker.sock"
+	}
 
     stage('packaging') {
 		echo "DOCKER_HOST is: $DOCKER_HOST"
