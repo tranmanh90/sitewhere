@@ -3,7 +3,7 @@
 node {
 
     stage('test'){
-        sh "cd /home/viniot/deployment/platform"
+        sh "cd /home/viniot/deployment/platform/"
     }
 
     stage('checkout') {
