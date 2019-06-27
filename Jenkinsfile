@@ -1,7 +1,6 @@
 #!/usr/bin/env groovy
 
 node {
-	agent { label 'docker' }
     environment {
 		DOCKER_HOST="unix:///var/run/docker.sock"
     }
