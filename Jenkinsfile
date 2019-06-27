@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 
 node {
-
+	agent { label 'docker' }
     environment {
-		DOCKER_HOST=unix:///var/run/docker.sock
+		DOCKER_HOST="unix:///var/run/docker.sock"
     }
 
     stage('checkout') {
@@ -13,12 +13,9 @@ node {
     stage('check java') {
         sh "java -version"
     }
-	
-	stage('export'){
-		sh '${DOCKER_HOST}'
-	}
 
     stage('packaging') {
+		echo "DOCKER_HOST is: $DOCKER_HOST"
         sh "./gradlew --project-prop debug clean dockerImage"
     }
 }
