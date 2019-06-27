@@ -15,6 +15,6 @@ node {
     }
 	
 	stage('deploy'){
-		sh "cd /home/viniot/deployment/platform\ndocker-compose up -d"
+		sh "cd home/viniot/deployment/platform\ndocker-compose up -d"
 	}
 }
