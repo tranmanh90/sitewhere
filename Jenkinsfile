@@ -2,6 +2,10 @@
 
 node {
 
+    environment {
+		DOCKER_HOST=unix:///var/run/docker.sock
+    }
+
     stage('checkout') {
         checkout scm
     }
@@ -9,11 +13,12 @@ node {
     stage('check java') {
         sh "java -version"
     }
+	
+	stage('export'){
+		sh '${DOCKER_HOST}'
+	}
 
     stage('packaging') {
-	    environment {
-			DOCKER_HOST='unix:///var/run/docker.sock'
-		}
         sh "./gradlew --project-prop debug clean dockerImage"
     }
 }
