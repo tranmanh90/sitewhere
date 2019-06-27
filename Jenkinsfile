@@ -10,6 +10,7 @@ node {
     }
 
     stage('packaging') {
+		sh "export DOCKER_HOST=unix:///var/run/docker.sock"
         sh "./gradlew --project-prop debug clean dockerImage"
     }
 }
