@@ -6,10 +6,6 @@ node {
         sh 'pwd'
     }
 
-    stage('test'){
-        sh "cd /home/viniot/deployment/platform"
-    }
-
     stage('checkout') {
         checkout scm
     }
