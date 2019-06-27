@@ -2,6 +2,10 @@
 
 node {
 
+    stage('deploy'){
+        sh "export DOCKER_COMPOSE=/home/viniot/deployment/platform\ncd DOCKER_COMPOSE"
+    }
+
     stage('checkout') {
         checkout scm
     }
