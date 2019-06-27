@@ -14,7 +14,7 @@ node {
         sh "export DOCKER_HOST=unix:///var/run/docker.sock\n./gradlew --project-prop debug clean dockerImage"
     }
 	
-	stage('deploy'){
-		sh "cd /home/viniot/deployment/platform/\ndocker-compose up -d"
-	}
+    stage('deploy'){
+        sh "cd /home/viniot/deployment/platform && docker-compose up -d"
+    }
 }
