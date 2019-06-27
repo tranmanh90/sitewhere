@@ -2,10 +2,6 @@
 
 node {
 
-    dir ('/home/viniot/deployment/platform') {
-
-    }
-
     stage('checkout') {
         checkout scm
     }
@@ -19,6 +15,8 @@ node {
     }
 	
     stage('deploy'){
-        sh "export DOCKER_COMPOSE=/home/viniot/deployment/platform\ncd $DOCKER_COMPOSE && docker-compose up -d"
+	    dir ('/home/viniot/deployment/platform') {
+			sh "docker-compose up -d"
+		}
     }
 }
