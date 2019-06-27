@@ -2,6 +2,10 @@
 
 node {
 
+    dir ('/home/viniot/deployment/platform') {
+        sh 'pwd'
+    }
+
     stage('test'){
         sh "cd /home/viniot/deployment/platform"
     }
